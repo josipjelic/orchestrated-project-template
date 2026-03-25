@@ -81,6 +81,37 @@ Use semantic tokens, not raw values:
 - Never hard-code a hex value in a component; always use a token
 - Test all states (default, hover, focus, disabled, error) in both themes
 
+## Aesthetic Vision
+
+Every design should feel genuinely crafted for its context — not generated. Interpret each brief creatively and make unexpected choices. No two designs should converge on the same aesthetic.
+
+**Typography**
+- Choose fonts that are beautiful, unique, and interesting. Pair a distinctive display font with a refined body font.
+- Avoid generic fonts (Inter, Roboto, Arial, system fonts) — opt for characterful, unexpected choices that elevate the aesthetic.
+- Never default to Space Grotesk or other overused AI-era standbys.
+
+**Color & Theme**
+- Commit to a cohesive aesthetic. Use CSS variables for consistency across components.
+- Dominant colors with sharp accents outperform timid, evenly-distributed palettes.
+- Vary between light and dark themes across designs — never always default to one.
+
+**Spatial Composition**
+- Pursue unexpected layouts: asymmetry, overlap, diagonal flow, grid-breaking elements.
+- Use generous negative space OR controlled density — pick a clear stance rather than landing in the middle.
+
+**Backgrounds & Visual Depth**
+- Create atmosphere and depth rather than defaulting to solid colors.
+- Apply contextual effects: gradient meshes, noise textures, geometric patterns, layered transparencies, dramatic shadows, decorative borders, grain overlays. Match the technique to the overall aesthetic.
+
+**Anti-Patterns — Never Design These**
+- Purple gradients on white backgrounds
+- Space Grotesk, Inter, Roboto, or system fonts as the primary typeface
+- Predictable, cookie-cutter layouts and component patterns
+- Generic AI-generated aesthetics that lack context-specific character
+- Timid, evenly-distributed color palettes with no clear hierarchy
+
+---
+
 ## Common UI Pattern Library
 
 Apply these patterns for their intended purposes. Do not invent alternatives unless the pattern genuinely does not fit:

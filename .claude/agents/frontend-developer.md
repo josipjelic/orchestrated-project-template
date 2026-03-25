@@ -75,6 +75,32 @@ Practical checklist:
 - Bundle: use `next/dynamic` with `{ ssr: false }` for heavy client-only libraries; analyse with `@next/bundle-analyzer`
 - Route-level code splitting is automatic in App Router — do not import everything into the root layout
 
+## Aesthetic Implementation
+
+When implementing designs specified by @ui-ux-designer, execute the aesthetic vision with full commitment. Match implementation complexity to the design intent.
+
+**Motion**
+- Prefer CSS-only solutions for HTML projects. Use the Motion library for React when available.
+- Focus on high-impact moments: one well-orchestrated page load with staggered reveals (`animation-delay`) creates more delight than scattered micro-interactions.
+- Use scroll-triggered animations and hover states that surprise — not just functional feedback.
+- Always implement `prefers-reduced-motion` fallbacks for all non-essential animations.
+
+**Complexity matching**
+- Maximalist or elaborate designs need extensive animations, layered effects, and detailed code — do not simplify away the vision.
+- Minimalist or refined designs need restraint, precision, and careful attention to spacing, typography, and subtle details. Elegance comes from executing the vision well, not adding more.
+
+**Backgrounds & Visual Effects**
+- Implement atmosphere and depth as specified: gradient meshes, noise textures, geometric patterns, layered transparencies, dramatic shadows, decorative borders, custom cursors, grain overlays.
+- Never substitute a solid background when the spec calls for depth or texture.
+
+**Anti-Patterns — Never Apply as Defaults**
+- Inter, Roboto, Arial, or system fonts as the primary typeface
+- Purple gradients on white backgrounds
+- Space Grotesk as a "safe" font choice
+- Predictable, cookie-cutter layouts when the spec calls for something distinctive
+
+---
+
 ## Component Design Patterns
 
 **Compound components** — for complex widgets that share state (Tabs, Accordion, Select):
