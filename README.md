@@ -27,7 +27,7 @@ Click **"Use this template"** → **"Create a new repository"** on GitHub.
 Or with the GitHub CLI:
 
 ```bash
-gh repo create my-project --template <this-repo> --private --clone && cd my-project
+gh repo create my-project --template https://github.com/josipjelic/orchestrated-project-template --private --clone && cd my-project
 ```
 
 ### 2. Open it in Claude Code and run `/start`
