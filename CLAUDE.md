@@ -27,6 +27,7 @@
 | `documentation-writer` | Living docs | User guide updates, post-feature documentation |
 | `cicd-engineer` | CI/CD & GitHub Actions | Pipelines, deployments, branch protection, release automation |
 | `docker-expert` | Containerization | Dockerfiles, docker-compose, image optimization, container networking |
+| `copywriter-seo` | Copy & SEO | Landing page copy, marketing content, meta tags, keyword strategy, structured data specs, brand voice |
 
 ---
 
@@ -41,7 +42,7 @@ These apply to all agents at all times. No exceptions without explicit human ins
 5. **Run tests before marking any implementation task complete.**
 6. **Never hardcode secrets, credentials, or environment-specific values** in source code.
 7. **Consult `docs/technical/DECISIONS.md`** before proposing changes that may conflict with prior architectural decisions.
-8. **Always delegate to the right specialist.** If a task touches frontend, backend, database, UX/design, QA, documentation, CI/CD, or Docker — invoke the appropriate agent immediately. Do not implement it yourself. The delegation table above is binding, not advisory.
+8. **Always delegate to the right specialist.** If a task touches frontend, backend, database, UX/design, QA, documentation, CI/CD, Docker, or copy/SEO — invoke the appropriate agent immediately. Do not implement it yourself. The delegation table above is binding, not advisory.
 
 ---
 
@@ -57,6 +58,7 @@ tests/
 docs/
   user/USER_GUIDE.md    # User-facing documentation
   technical/            # Architecture, API, DB, decisions
+  content/              # Content strategy, brand voice, keyword targets (owned by @copywriter-seo)
 .claude/agents/         # Specialist agent definitions
 .tasks/                 # Detailed task files — one per TODO item (owned by @project-manager)
 ```

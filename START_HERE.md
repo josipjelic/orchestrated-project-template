@@ -42,9 +42,15 @@ Ask the user questions in conversational groups — 3 to 4 at a time. Wait for a
 17. What is explicitly out of scope for v1? (important for keeping the backlog focused)
 18. Who is the product owner / decision maker?
 
-**Group 5 — Goals and open questions:**
-19. What does success look like? Any specific metrics? (e.g., "100 users in first month", "onboarding under 5 minutes")
-20. Are there any open decisions not yet made? (e.g., auth provider, payment processor, third-party integrations)
+**Group 5 — Content & SEO (skip if this is an internal tool with no public-facing pages):**
+19. Does the product have a public-facing website, landing pages, or marketing content?
+20. Do you have a defined brand voice or tone? (e.g., "professional and direct", "friendly and conversational") Any written examples or a style guide?
+21. Are there SEO goals? (e.g., organic traffic targets, specific keywords you want to rank for, competitor pages you want to outrank)
+22. Do you already have copy for any pages, or are all pages starting from scratch?
+
+**Group 6 — Goals and open questions:**
+23. What does success look like? Any specific metrics? (e.g., "100 users in first month", "onboarding under 5 minutes")
+24. Are there any open decisions not yet made? (e.g., auth provider, payment processor, third-party integrations)
 
 ---
 
@@ -99,6 +105,17 @@ Fill in ADR-001 with the initial tech stack decision:
 
 Update the Decision Index table with the ADR-001 row.
 
+**2.6 — `docs/content/CONTENT_STRATEGY.md`** *(skip if the project has no public-facing pages — mark file as `[N/A — internal tool]` in that case)*
+
+Using the answers from Group 5:
+- Overview and primary value proposition: the one sentence that all copy must reinforce
+- Brand Voice table: fill in the four voice dimensions (formality, energy, personality, authority) based on the tone the user described; if no tone was defined, leave as `[TBD — define with @copywriter-seo]`
+- Tone-by-context matrix: fill in the marketing headline and error message rows at minimum; leave others as `[TBD]`
+- Target personas: one entry per persona from PRD.md — summarise their job-to-be-done and biggest objection in copy terms
+- Keyword strategy: list any specific keywords the user mentioned; mark volume and difficulty as `[verify]`; leave the table otherwise populated with `[TBD]` rows
+- Canonical domain: fill in the primary domain and chosen www/non-www preference if known; otherwise `[TBD]`
+- Leave the Page Copy Library, CTA Library, and Redirect Map as blank templates — they will be filled in by @copywriter-seo as pages are written
+
 ---
 
 ### Phase 3: Build the Initial Backlog
@@ -114,6 +131,7 @@ Read through the functional requirements in `PRD.md` and break them down into co
 - Does it need a UI? → task tagged `[area: frontend]`
 - Does it need UX design first? → task tagged `[area: design]`
 - Will it need E2E tests? → task tagged `[area: qa]`
+- Is it a public-facing page that needs copy and SEO? → task tagged `[area: content]` — copy and keyword work must precede the frontend task for that page
 
 #### 3.2 — Task sizing and ordering rules
 
@@ -176,6 +194,7 @@ After completing all documentation and the initial backlog, present a structured
 - PRD.md — [X] functional requirements across [Y] feature areas, [Z] personas
 - ARCHITECTURE.md — tech stack and infrastructure
 - DECISIONS.md — ADR-001: [tech stack decision title]
+- CONTENT_STRATEGY.md — [brand voice / keyword targets filled in | marked N/A for internal tool]
 
 ### Initial Backlog
 Up Next ([N] tasks):
@@ -218,6 +237,7 @@ Use this to verify everything is done before asking for confirmation in Phase 4.
 - [ ] `PRD.md` — executive summary, personas, numbered FR-XXX requirements, NFRs, out of scope, open questions
 - [ ] `docs/technical/ARCHITECTURE.md` — tech stack table and infrastructure environments filled in
 - [ ] `docs/technical/DECISIONS.md` — ADR-001 filled in with real tech stack rationale
+- [ ] `docs/content/CONTENT_STRATEGY.md` — brand voice and personas filled in (or marked `[N/A]` if internal tool with no public-facing pages)
 
 **Backlog**
 - [ ] `TODO.md` contains only real tasks — no placeholder `#001`–`#008` entries remain
