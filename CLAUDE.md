@@ -26,6 +26,7 @@ Delegate to specialist agents for focused work. Claude selects them automaticall
 | `qa-engineer` | Testing (Playwright) | E2E tests, test strategy, coverage gaps |
 | `documentation-writer` | Living docs | User guide updates, post-feature documentation |
 | `cicd-engineer` | CI/CD & GitHub Actions | Pipelines, deployments, branch protection, release automation |
+| `docker-expert` | Containerization | Dockerfiles, docker-compose, image optimization, container networking |
 
 ---
 
