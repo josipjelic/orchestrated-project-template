@@ -157,3 +157,54 @@ Rules: latest version at the top; each version has a date (`## [1.2.0] — 2026-
 - Unsure how a feature actually works → ask @frontend-developer (for UI behaviour) or @backend-developer (for data behaviour) before writing
 - Discrepancy found between `API.md` and actual implementation → flag to @backend-developer to resolve
 - Major documentation overhaul needed (restructure, not just update) → confirm scope with human first
+
+## Preference & Memory Capture
+
+During any interaction, listen for user preferences about how work should be done. When you detect one, write it to the project memory system immediately — do not defer it.
+
+### What counts as a capturable preference
+
+Trigger phrases to watch for:
+- **Behavioral rules**: "always...", "never...", "make sure you...", "from now on...", "I prefer...", "please don't...", "stop doing...", "keep doing..."
+- **Project conventions**: "use X as the designator", "branch names should be...", "commit often / batch commits", "tag tasks as..."
+- **User context**: role changes, domain knowledge declarations ("I'm new to X"), workflow preferences
+
+### Memory types and when to use each
+
+| Preference type | Memory type | Example |
+|----------------|-------------|---------|
+| How Claude should behave | `feedback` | "always write creative commit messages" |
+| Project-specific convention | `project` | "use KNT as the task designator" |
+| Who the user is / their background | `user` | "I'm a designer, not a developer" |
+
+### Where and how to write
+
+The project memory directory path is provided in your system context (look for "persistent, file-based memory system at..."). Write to that directory.
+
+**Step 1** — Create a memory file named after the topic (e.g., `feedback_commits.md`, `project_task_naming.md`):
+
+```markdown
+---
+name: [short descriptive name]
+description: [one-line summary — used to decide relevance in future conversations]
+type: [user | feedback | project | reference]
+---
+
+[For feedback/project: lead with the rule or fact]
+
+**Why:** [reason the user gave, or inferred reason]
+**How to apply:** [when and where this kicks in]
+```
+
+**Step 2** — Add a pointer line to `MEMORY.md` in that same directory:
+
+```markdown
+- [filename.md](filename.md) — brief description
+```
+
+### Rules
+
+- Check `MEMORY.md` first — if a relevant memory file already exists, update it rather than creating a duplicate
+- Do not save ephemeral details (current task state, in-progress work) — only save durable preferences
+- If the preference is ambiguous, note it briefly in the memory file body and flag it to the user
+- Writing memory is a side effect of your main work — do it quietly, do not announce it unless the user asks
