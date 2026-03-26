@@ -149,11 +149,12 @@ Wait for the project-manager to return the assigned task IDs before proceeding.
 
 After receiving task IDs from the project manager, create a feature branch:
 
-1. Use the first assigned task ID as the ticket reference
-2. Derive a short slug from `$ARGUMENTS` (3-5 words, hyphen-separated, lowercase)
-3. Branch name: `feature/<NNN>-<short-slug>` — e.g., `feature/042-user-authentication`
-4. Run: `git checkout -b <branch-name>`
-5. Confirm to the user: "Created and switched to branch `<branch-name>`. All agent work will land on this branch."
+1. Derive a short slug from `$ARGUMENTS` (3-5 words, hyphen-separated, lowercase)
+2. Branch name: `feature/<short-slug>` — e.g., `feature/user-authentication`
+3. Run: `git checkout -b <branch-name>`
+4. Confirm to the user: "Created and switched to branch `<branch-name>`. All agent work will land on this branch."
+
+No task number in the branch name — one branch covers multiple tasks from a single orchestration run.
 
 Do not proceed to execution until the branch exists.
 
@@ -245,7 +246,7 @@ When all waves complete, present a consolidated report:
 ```
 ## Orchestration Complete: [task description]
 
-**Branch**: `feature/NNN-short-slug`
+**Branch**: `feature/short-slug`
 **Suggested PR title**: feat(<scope>): [description following Conventional Commits]
 
 ### What was produced
