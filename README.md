@@ -40,6 +40,30 @@ Once onboarding is complete, `START_HERE.md` is deleted and the project is ready
 
 ---
 
+## Keeping Up to Date
+
+As the template evolves — new agents, refined commands, improved conventions — you can pull those improvements into any existing project with a single command.
+
+### Run `/sync-template`
+
+Open your project in Claude Code and run:
+
+```
+/sync-template
+```
+
+Claude will:
+1. Fetch the latest `.claude/` directory from the upstream template repository
+2. Show you a diff — new files, modified files, and local-only files it will leave untouched
+3. Ask for confirmation before changing anything
+4. Apply the updates and report what changed
+
+**What gets synced**: everything in `.claude/` — agent definitions, commands, and settings.
+
+**What is preserved**: any files you've added locally that don't exist in the upstream template are never deleted. Project-specific customisations stay intact.
+
+---
+
 ## What's Inside
 
 ```
@@ -50,18 +74,32 @@ Once onboarding is complete, `START_HERE.md` is deleted and the project is ready
 ├── START_HERE.md                 # Onboarding protocol — deleted after setup
 ├── .gitignore
 │
-├── .claude/agents/               # Specialist sub-agents
-│   ├── project-manager.md        # Backlog governance & agent coordination
-│   ├── systems-architect.md      # Architecture decisions & ADRs (Claude Opus)
-│   ├── frontend-developer.md     # UI components & pages
-│   ├── backend-developer.md      # API endpoints & business logic
-│   ├── ui-ux-designer.md         # UX flows & design system specs
-│   ├── database-expert.md        # Schema design & migrations
-│   ├── qa-engineer.md            # Playwright E2E tests
-│   ├── documentation-writer.md  # User guide & project docs
-│   ├── cicd-engineer.md         # GitHub Actions workflows & deployment pipelines
-│   ├── docker-expert.md         # Dockerfiles, Compose, image optimization
-│   └── copywriter-seo.md        # Conversion copy, brand voice, keyword strategy, technical SEO
+├── .claude/
+│   ├── agents/                   # Specialist sub-agents
+│   │   ├── project-manager.md    # Backlog governance & agent coordination
+│   │   ├── systems-architect.md  # Architecture decisions & ADRs (Claude Opus)
+│   │   ├── frontend-developer.md # UI components & pages
+│   │   ├── backend-developer.md  # API endpoints & business logic
+│   │   ├── ui-ux-designer.md     # UX flows & design system specs
+│   │   ├── database-expert.md    # Schema design & migrations
+│   │   ├── qa-engineer.md        # Playwright E2E tests
+│   │   ├── documentation-writer.md # User guide & project docs
+│   │   ├── cicd-engineer.md      # GitHub Actions workflows & deployment pipelines
+│   │   ├── docker-expert.md      # Dockerfiles, Compose, image optimization
+│   │   └── copywriter-seo.md     # Conversion copy, brand voice, keyword strategy, technical SEO
+│   ├── commands/
+│   │   ├── start.md              # /start — runs the onboarding protocol
+│   │   └── sync-template.md      # /sync-template — pulls latest .claude/ from upstream
+│   └── templates/                # Blank doc templates — synced from upstream via /sync-template
+│       ├── CLAUDE.md             # Master Claude instructions template
+│       ├── PRD.md                # Product requirements template
+│       ├── README.md             # Project README template
+│       ├── docs/
+│       │   ├── technical/        # ARCHITECTURE.md, DECISIONS.md, API.md, DATABASE.md
+│       │   ├── user/             # USER_GUIDE.md
+│       │   └── content/          # CONTENT_STRATEGY.md
+│       └── .tasks/
+│           └── TASK_TEMPLATE.md  # Task file template
 │
 ├── .github/
 │   └── PULL_REQUEST_TEMPLATE.md  # Enforces consistent PR descriptions
@@ -69,7 +107,7 @@ Once onboarding is complete, `START_HERE.md` is deleted and the project is ready
 ├── .tasks/                       # Detailed task files — one per TODO item
 │   └── TASK_TEMPLATE.md          # Copy this when creating new tasks
 │
-└── docs/
+└── docs/                         # Created during onboarding from .claude/templates/
     ├── user/USER_GUIDE.md        # How the system is used (user perspective)
     ├── technical/
     │   ├── ARCHITECTURE.md       # System design & component overview

@@ -56,6 +56,24 @@ Ask the user questions in conversational groups — 3 to 4 at a time. Wait for a
 
 ### Phase 2: Fill in the Documentation
 
+#### 2.0 — Copy templates into place
+
+Before filling in any documentation, copy the blank templates from `.claude/templates/` to their project locations:
+
+```
+.claude/templates/docs/technical/ARCHITECTURE.md  →  docs/technical/ARCHITECTURE.md
+.claude/templates/docs/technical/DECISIONS.md     →  docs/technical/DECISIONS.md
+.claude/templates/docs/technical/API.md           →  docs/technical/API.md
+.claude/templates/docs/technical/DATABASE.md      →  docs/technical/DATABASE.md
+.claude/templates/docs/user/USER_GUIDE.md         →  docs/user/USER_GUIDE.md
+.claude/templates/docs/content/CONTENT_STRATEGY.md → docs/content/CONTENT_STRATEGY.md
+.claude/templates/README.md                       →  README.md  (the project README — replaces the template's own)
+```
+
+Create parent directories as needed. Do not modify the files inside `.claude/templates/` — they are the upstream originals.
+
+`CLAUDE.md` and `PRD.md` are already present at the project root and do not need copying.
+
 Using the answers collected in Phase 1, update the following files in order. Replace every `[placeholder]` with real content. If the user doesn't know an answer yet, use `[TBD]` — never leave the original template placeholder text.
 
 **2.1 — `CLAUDE.md`**
@@ -68,15 +86,13 @@ Using the answers collected in Phase 1, update the following files in order. Rep
 - Environment commands: dev, build, test, lint, typecheck
 - Stack line in the header
 
-**2.2 — `README.template.md` → rename to `README.md`**
+**2.2 — `README.md`** *(copied from `.claude/templates/README.template.md` in step 2.0)*
 
 - Project name and one-sentence description
 - Overview paragraphs (what it does, who it's for, why it exists)
 - Tech stack table: fill in all layers
 - Getting Started: prerequisites, install steps, run commands
 - Environment variables table: list all known required vars with descriptions (no values)
-
-When all placeholders are replaced, rename `README.template.md` to `README.md`. This replaces the template's own README.
 
 **2.3 — `PRD.md`**
 
@@ -232,8 +248,9 @@ Do not delete this file before the user says they're happy. "Looks good" or "yes
 Use this to verify everything is done before asking for confirmation in Phase 4.
 
 **Documentation**
+- [ ] Templates copied from `.claude/templates/` to `docs/` and `README.md` (step 2.0)
 - [ ] `CLAUDE.md` — all placeholders replaced, no `[square brackets]` remaining (or explicitly marked `[TBD]`)
-- [ ] `README.template.md` — all placeholders replaced and file renamed to `README.md`
+- [ ] `README.md` — all placeholders replaced (copied from `.claude/templates/README.md`)
 - [ ] `PRD.md` — executive summary, personas, numbered FR-XXX requirements, NFRs, out of scope, open questions
 - [ ] `docs/technical/ARCHITECTURE.md` — tech stack table and infrastructure environments filled in
 - [ ] `docs/technical/DECISIONS.md` — ADR-001 filled in with real tech stack rationale
