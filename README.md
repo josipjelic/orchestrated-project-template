@@ -40,27 +40,27 @@ Once onboarding is complete, `START_HERE.md` is deleted and the project is ready
 
 ---
 
-## Keeping Up to Date
+## Commands
 
-As the template evolves — new agents, refined commands, improved conventions — you can pull those improvements into any existing project with a single command.
+### `/start`
 
-### Run `/sync-template`
+Run once after creating a new project. Claude reads `START_HERE.md` and walks you through the full onboarding sequence — gathering project details, copying documentation templates into place, filling in every placeholder, and building the initial backlog from your requirements.
 
-Open your project in Claude Code and run:
+### `/orchestrate <task description>`
+
+Hand off a multi-agent task and let Claude coordinate the execution. The orchestrator analyzes your task, identifies which specialists are needed, determines the correct execution order (parallel where safe, sequential where dependencies require it), registers the work in the backlog, creates a feature branch, and runs the agents wave by wave.
 
 ```
-/sync-template
+/orchestrate add user authentication with email and password
 ```
 
-Claude will:
-1. Fetch the latest `.claude/` directory from the upstream template repository
-2. Show you a diff — new files, modified files, and local-only files it will leave untouched
-3. Ask for confirmation before changing anything
-4. Apply the updates and report what changed
+Presents a wave plan for your approval before anything runs. Stops and asks if a wave fails — never silently continues.
 
-**What gets synced**: everything in `.claude/` — agent definitions, commands, and settings.
+### `/sync-template`
 
-**What is preserved**: any files you've added locally that don't exist in the upstream template are never deleted. Project-specific customisations stay intact.
+Pull the latest `.claude/` directory from the upstream template repository into your project. Useful when agents are improved, new commands are added, or documentation templates are updated.
+
+Shows a diff and asks for confirmation before changing anything. Local-only files are never deleted.
 
 ---
 
