@@ -10,7 +10,7 @@ A bootstrapping template for software projects built with [Claude Code](https://
 
 This repository is an opinionated project scaffold that gives Claude everything it needs to act as a coherent development team from day one:
 
-- **Specialized agents** for each discipline (architecture, frontend, backend, design, database, QA, CI/CD, Docker, docs, copywriting & SEO)
+- **Specialized agents** for each discipline (architecture, frontend, mobile/React Native, backend, design, database, QA, CI/CD, Docker, docs, copywriting & SEO)
 - **Living documentation** that agents keep up to date as the project evolves
 - **Git conventions** enforced through commit format, branch naming, and PR templates
 - **A product requirements document** that serves as the authoritative source of truth — protected from accidental edits
@@ -79,6 +79,7 @@ Shows a diff and asks for confirmation before changing anything. Local-only file
 │   │   ├── project-manager.md    # Backlog governance & agent coordination
 │   │   ├── systems-architect.md  # Architecture decisions & ADRs (Claude Opus)
 │   │   ├── frontend-developer.md # UI components & pages
+│   │   ├── react-native-developer.md # Mobile screens, navigation & native modules
 │   │   ├── backend-developer.md  # API endpoints & business logic
 │   │   ├── ui-ux-designer.md     # UX flows & design system specs
 │   │   ├── database-expert.md    # Schema design & migrations
@@ -129,6 +130,7 @@ Each agent is a specialist Claude sub-agent with a defined role, document owners
 | `project-manager` | Sonnet | Backlog governance, sprint planning, agent coordination | `TODO.md` |
 | `systems-architect` | Opus | High-level design, tech decisions, ADRs | `ARCHITECTURE.md`, `DECISIONS.md` |
 | `frontend-developer` | Sonnet | UI components, pages, client-side logic | Frontend section of `ARCHITECTURE.md` |
+| `react-native-developer` | Sonnet | Mobile screens, navigation, native modules, platform-specific code | Mobile section of `ARCHITECTURE.md` |
 | `backend-developer` | Sonnet | API endpoints, business logic, integrations | `API.md` |
 | `ui-ux-designer` | Sonnet | UX flows, design system, accessibility specs | Design System section of `ARCHITECTURE.md` |
 | `database-expert` | Sonnet | Schema design, migrations, query optimization | `DATABASE.md` |

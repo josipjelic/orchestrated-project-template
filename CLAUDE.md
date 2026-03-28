@@ -20,6 +20,7 @@
 | `project-manager` | Backlog & coordination | "What's next?", sprint planning, breaking down features, reprioritizing |
 | `systems-architect` | Architecture & ADRs | New feature design, tech decisions, system integration |
 | `frontend-developer` | UI implementation | Components, pages, client-side state, styling |
+| `react-native-developer` | Mobile UI implementation | React Native screens, navigation, native modules, platform styling, mobile performance |
 | `backend-developer` | API & business logic | Endpoints, auth, background jobs, integrations |
 | `ui-ux-designer` | UX & design system | User flows, wireframes, component specs, accessibility |
 | `database-expert` | Schema & queries | Migrations, schema design, query optimization |
@@ -42,7 +43,7 @@ These apply to all agents at all times. No exceptions without explicit human ins
 5. **Run tests before marking any implementation task complete.**
 6. **Never hardcode secrets, credentials, or environment-specific values** in source code.
 7. **Consult `docs/technical/DECISIONS.md`** before proposing changes that may conflict with prior architectural decisions.
-8. **Always delegate to the right specialist.** If a task touches frontend, backend, database, UX/design, QA, documentation, CI/CD, Docker, or copy/SEO — invoke the appropriate agent immediately. Do not implement it yourself. The delegation table above is binding, not advisory.
+8. **Always delegate to the right specialist.** If a task touches frontend, mobile (React Native), backend, database, UX/design, QA, documentation, CI/CD, Docker, or copy/SEO — invoke the appropriate agent immediately. Do not implement it yourself. The delegation table above is binding, not advisory.
 
 ---
 
