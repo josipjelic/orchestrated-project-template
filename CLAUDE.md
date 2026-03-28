@@ -36,7 +36,7 @@
 
 These apply to all agents at all times. No exceptions without explicit human instruction.
 
-1. **PRD.md is read-only.** Never modify it. Read it to understand requirements.
+1. **PRD.md requires explicit human approval to modify.** Do not edit it unless the human has clearly instructed you to do so in the current conversation. Read it to understand requirements.
 2. **TODO.md is the living backlog.** Agents may add items, mark items complete, and move items to "Completed". Preserve section order and existing item priority — do not reorder items within a section unless explicitly asked to reprioritize.
 3. **All commits use Conventional Commits format** (see Git Conventions below).
 4. **Update the relevant `docs/` file** after every significant change before marking a task complete.
