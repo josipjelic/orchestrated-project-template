@@ -96,7 +96,7 @@ Shows a diff and asks for confirmation before changing anything. Local-only file
 │       ├── PRD.md                # Product requirements template
 │       ├── README.md             # Project README template
 │       ├── docs/
-│       │   ├── technical/        # ARCHITECTURE.md, DECISIONS.md, API.md, DATABASE.md
+│       │   ├── technical/        # ARCHITECTURE.md, DESIGN_SYSTEM.md, DECISIONS.md, API.md, DATABASE.md
 │       │   ├── user/             # USER_GUIDE.md
 │       │   └── content/          # CONTENT_STRATEGY.md
 │       └── .tasks/
@@ -112,6 +112,7 @@ Shows a diff and asks for confirmation before changing anything. Local-only file
     ├── user/USER_GUIDE.md        # How the system is used (user perspective)
     ├── technical/
     │   ├── ARCHITECTURE.md       # System design & component overview
+    │   ├── DESIGN_SYSTEM.md      # Design tokens, UX specs, component inventory (@ui-ux-designer)
     │   ├── API.md                # API reference (updated after every endpoint)
     │   ├── DATABASE.md           # Schema, migrations, query patterns
     │   └── DECISIONS.md          # Architecture Decision Records (ADR log)
@@ -132,7 +133,7 @@ Each agent is a specialist Claude sub-agent with a defined role, document owners
 | `frontend-developer` | Sonnet | UI components, pages, client-side logic | Frontend section of `ARCHITECTURE.md` |
 | `react-native-developer` | Sonnet | Mobile screens, navigation, native modules, platform-specific code | Mobile section of `ARCHITECTURE.md` |
 | `backend-developer` | Sonnet | API endpoints, business logic, integrations | `API.md` |
-| `ui-ux-designer` | Sonnet | UX flows, design system, accessibility specs | Design System section of `ARCHITECTURE.md` |
+| `ui-ux-designer` | Sonnet | UX flows, design system, accessibility specs | `docs/technical/DESIGN_SYSTEM.md` |
 | `database-expert` | Sonnet | Schema design, migrations, query optimization | `DATABASE.md` |
 | `qa-engineer` | Sonnet | Playwright E2E tests, test strategy | `tests/e2e/` |
 | `documentation-writer` | Haiku | User guide, README updates | `USER_GUIDE.md` |

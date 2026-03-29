@@ -61,7 +61,8 @@ Ask the user questions in conversational groups — 3 to 4 at a time. Wait for a
 Before filling in any documentation, copy the blank templates from `.claude/templates/` to their project locations:
 
 ```
-.claude/templates/docs/technical/ARCHITECTURE.md  →  docs/technical/ARCHITECTURE.md
+.claude/templates/docs/technical/ARCHITECTURE.md    →  docs/technical/ARCHITECTURE.md
+.claude/templates/docs/technical/DESIGN_SYSTEM.md   →  docs/technical/DESIGN_SYSTEM.md
 .claude/templates/docs/technical/DECISIONS.md     →  docs/technical/DECISIONS.md
 .claude/templates/docs/technical/API.md           →  docs/technical/API.md
 .claude/templates/docs/technical/DATABASE.md      →  docs/technical/DATABASE.md
@@ -109,7 +110,12 @@ Using the answers collected in Phase 1, update the following files in order. Rep
 
 - Tech stack table: fill in all layers with versions and brief rationale
 - Infrastructure environments table: at minimum, Production and Local rows
-- Leave the Design System, Frontend Architecture, Backend Architecture, and Data Flow sections as templates — they will be filled in as implementation progresses
+- Leave the Frontend Architecture, Backend Architecture, and Data Flow sections as templates — they will be filled in as implementation progresses
+- The **Design system and UX** section only links to `DESIGN_SYSTEM.md` — do not duplicate tokens there
+
+**2.4b — `docs/technical/DESIGN_SYSTEM.md`**
+
+- Leave token tables, component inventory, interaction patterns, and key user flows as templates — @ui-ux-designer fills these as the product UI evolves (parallel to how copy evolves in `CONTENT_STRATEGY.md`)
 
 **2.5 — `docs/technical/DECISIONS.md`**
 
@@ -209,6 +215,7 @@ After completing all documentation and the initial backlog, present a structured
 - README.md — overview, getting started, env vars
 - PRD.md — [X] functional requirements across [Y] feature areas, [Z] personas
 - ARCHITECTURE.md — tech stack and infrastructure
+- DESIGN_SYSTEM.md — design/UX templates in place (refined by @ui-ux-designer as UI ships)
 - DECISIONS.md — ADR-001: [tech stack decision title]
 - CONTENT_STRATEGY.md — [brand voice / keyword targets filled in | marked N/A for internal tool]
 
@@ -253,6 +260,7 @@ Use this to verify everything is done before asking for confirmation in Phase 4.
 - [ ] `README.md` — all placeholders replaced (copied from `.claude/templates/README.md`)
 - [ ] `PRD.md` — executive summary, personas, numbered FR-XXX requirements, NFRs, out of scope, open questions
 - [ ] `docs/technical/ARCHITECTURE.md` — tech stack table and infrastructure environments filled in
+- [ ] `docs/technical/DESIGN_SYSTEM.md` — copied from template (placeholder tables OK until design work begins)
 - [ ] `docs/technical/DECISIONS.md` — ADR-001 filled in with real tech stack rationale
 - [ ] `docs/content/CONTENT_STRATEGY.md` — brand voice and personas filled in (or marked `[N/A]` if internal tool with no public-facing pages)
 

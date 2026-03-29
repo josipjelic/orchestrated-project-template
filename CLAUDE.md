@@ -59,7 +59,7 @@ tests/
   e2e/                  # Playwright E2E tests (*.spec.ts)
 docs/
   user/USER_GUIDE.md    # User-facing documentation
-  technical/            # Architecture, API, DB, decisions
+  technical/            # Architecture, API, DB, decisions, design system (DESIGN_SYSTEM.md owned by @ui-ux-designer)
   content/              # Content strategy, brand voice, keyword targets (owned by @copywriter-seo)
 .claude/agents/         # Specialist agent definitions
 .claude/templates/      # Blank doc templates (synced from upstream — do not edit)
@@ -152,6 +152,7 @@ refactor/<description>
 ## Key Documentation
 
 @docs/technical/ARCHITECTURE.md
+@docs/technical/DESIGN_SYSTEM.md
 @docs/technical/DECISIONS.md
 @docs/technical/API.md
 @docs/technical/DATABASE.md

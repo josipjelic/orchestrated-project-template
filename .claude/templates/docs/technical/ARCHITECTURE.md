@@ -1,13 +1,13 @@
 <!--
 DOCUMENT METADATA
-Owner: @systems-architect (all sections except Design System)
-Update trigger: System architecture changes, new integrations, component additions, design system updates
+Owner: @systems-architect
+Update trigger: System architecture changes, new integrations, component additions
 Update scope:
-  @systems-architect: All sections except "Design System"
-  @ui-ux-designer: "Design System" section only
+  @systems-architect: Entire document
   @frontend-developer: May append to "Frontend Architecture" (never overwrite)
   @backend-developer: May append to "Backend Architecture" (never overwrite)
 Read by: All agents. Always read before making implementation decisions.
+For design tokens, component specs, and UX flows see DESIGN_SYSTEM.md (@ui-ux-designer).
 -->
 
 # System Architecture
@@ -120,52 +120,9 @@ src/components/
 
 ---
 
-## Design System
+## Design system and UX
 
-<!--
-This section is owned by @ui-ux-designer.
-Other agents: read-only. Do not modify.
--->
-
-### Color Tokens
-
-| Token | Value | Usage |
-|-------|-------|-------|
-| `color-primary-500` | [#XXXXXX] | Primary actions, links |
-| `color-primary-600` | [#XXXXXX] | Primary hover states |
-| `color-neutral-100` | [#XXXXXX] | Background surfaces |
-| `color-neutral-900` | [#XXXXXX] | Body text |
-| `color-error-500` | [#XXXXXX] | Error states |
-| `color-success-500` | [#XXXXXX] | Success states |
-
-### Typography Scale
-
-| Token | Size | Weight | Usage |
-|-------|------|--------|-------|
-| `text-heading-1` | [32px] | [700] | Page headings |
-| `text-heading-2` | [24px] | [600] | Section headings |
-| `text-body` | [16px] | [400] | Body copy |
-| `text-small` | [14px] | [400] | Labels, captions |
-
-### Spacing System
-
-[e.g., 4px base unit — all spacing is multiples of 4: 4, 8, 12, 16, 24, 32, 48, 64]
-
-### Component Inventory
-
-| Component | Location | Status | Notes |
-|-----------|----------|--------|-------|
-| Button | `src/components/ui/Button` | [Stable] | Primary, secondary, ghost variants |
-| Input | `src/components/ui/Input` | [Stable] | |
-| Modal | `src/components/ui/Modal` | [Stable] | |
-| [Component] | | [Draft/Stable/Deprecated] | |
-
-### Interaction Patterns
-
-- **Loading states**: [e.g., skeleton screens for content, spinner for actions]
-- **Error states**: [e.g., inline error messages below form fields, toast for async errors]
-- **Empty states**: [e.g., illustrated empty state with CTA for first-use scenarios]
-- **Confirmation dialogs**: [e.g., required for destructive actions, not for saves]
+The canonical **design system** (tokens, typography, spacing, component inventory, interaction patterns) and **UX flow summaries** live in [`DESIGN_SYSTEM.md`](./DESIGN_SYSTEM.md). That file is owned by @ui-ux-designer. Other agents: read-only — do not edit it unless you are @ui-ux-designer.
 
 ---
 

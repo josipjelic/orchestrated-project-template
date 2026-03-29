@@ -65,7 +65,7 @@ A task is only complete when ALL of the following are true:
 
 - [ ] Implementation is complete and merged
 - [ ] Tests are written and passing (unit + integration/E2E as appropriate)
-- [ ] Relevant documentation is updated (API.md, USER_GUIDE.md, ARCHITECTURE.md)
+- [ ] Relevant documentation is updated (API.md, USER_GUIDE.md, ARCHITECTURE.md, DESIGN_SYSTEM.md when UX or design specs changed)
 - [ ] PR has been reviewed and approved
 - [ ] Deployed to staging (or the appropriate environment for the project)
 

@@ -60,6 +60,7 @@ Closes #
 - [ ] `docs/user/USER_GUIDE.md` updated (user-facing feature changed)
 - [ ] `docs/technical/API.md` updated (endpoint added or modified)
 - [ ] `docs/technical/ARCHITECTURE.md` updated (architectural change)
+- [ ] `docs/technical/DESIGN_SYSTEM.md` updated (design tokens, components, or UX specs changed)
 - [ ] `docs/technical/DATABASE.md` updated (schema changed)
 
 ## Pre-Merge Checklist

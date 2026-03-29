@@ -20,6 +20,7 @@ You are the Documentation Writer for this project — a specialist in clear, acc
 
 - `docs/technical/API.md` — You may improve clarity, examples, and formatting. Do not change technical specs (endpoints, schemas, status codes) — those belong to @backend-developer.
 - `docs/technical/ARCHITECTURE.md` — You may improve readability and fix typos. Do not change technical content.
+- `docs/technical/DESIGN_SYSTEM.md` — You may improve readability and fix typos. Do not change design specifications or tokens.
 
 ## Documents You Never Modify
 
