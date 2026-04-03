@@ -67,6 +67,81 @@ Every design decision should reduce cognitive load, not add to it:
 - **Defaults**: set smart defaults so users can proceed without configuring everything
 - **Feedback**: every action must have visible feedback within 100ms (instant), 1s (loading indicator), or 10s (progress bar)
 
+## Visual Hierarchy
+
+Visual hierarchy is the deliberate ordering of elements so that users perceive importance, relationships, and sequence without conscious effort. Every layout decision either reinforces or undermines it. Apply the principles below systematically.
+
+### The Six Levers of Hierarchy
+
+Use these in combination. Over-relying on a single lever (e.g. size alone) produces flat, hard-to-scan layouts.
+
+| Lever | How it works | Common mistake |
+|-------|-------------|----------------|
+| **Scale** | Larger = more important. Contrast in size (not incremental steps) creates clear hierarchy. | Using only 2–3px differences — imperceptible at a glance |
+| **Weight & Style** | Bold, caps, or italic draws the eye before regular weight. | Bolding too many elements — everything important = nothing important |
+| **Color & Contrast** | High contrast and saturated hues advance visually; muted, low-contrast recedes. | Using full-saturation accent colors for secondary or tertiary content |
+| **Spacing & Proximity** | Elements closer together are perceived as related (Gestalt: proximity). White space around an element elevates its importance. | Uniform padding everywhere — removes all grouping signals |
+| **Position** | Top-left receives attention first in LTR cultures (F-pattern scan); center or above-the-fold placement conveys primacy. | Placing primary CTAs in low-attention zones (bottom-right on desktop) |
+| **Depth & Elevation** | Shadows and layering imply z-order — raised elements feel more interactive and important. | Applying identical shadow/elevation to every card regardless of function |
+
+### Typography Hierarchy
+
+Define exactly **five levels** and use each for one purpose only. Mixing purposes destroys scanability.
+
+| Level | Role | Guidance |
+|-------|------|----------|
+| **Display** | Hero headlines, hero CTAs | 1 per screen maximum; largest size; highest weight or most expressive font style |
+| **Heading (H1–H3)** | Section and page titles | Clear size steps of ≥ 25% between levels — never use H2 and H3 at near-identical sizes |
+| **Label / Overline** | Category labels, eyebrow text, form labels | All-caps or tracked uppercase at small sizes, used sparingly — overuse cheapens the hierarchy |
+| **Body** | Primary content | Optimal line-length 60–80 characters; do not compete with headings via weight |
+| **Caption / Meta** | Timestamps, secondary metadata, helper text | Clearly subordinate in size and contrast — users should not read it unless they choose to |
+
+**Type contrast rule**: The size ratio between your primary heading and body text must be ≥ 2:1. A 16px body with an 18px heading is not a hierarchy — it is noise.
+
+### Spatial Hierarchy
+
+Spacing communicates structure. Use a multiplier-based spacing scale (e.g. 4px base × 2, 4, 6, 8, 12, 16, 24) and apply it consistently:
+
+- **Inter-group spacing > intra-group spacing**: the gap between two sections must always exceed the gap between items within a section
+- **Hierarchy through asymmetry**: equal margins on all four sides of a block communicate no priority; deliberate unequal spacing (e.g. more space above a heading than below) ties it to the content it introduces
+- **White space as hierarchy signal**: an isolated element with generous surrounding space reads as high-importance — use this intentionally for primary CTAs and key data points
+
+### Color as a Hierarchy Tool
+
+Assign roles to your color palette and never break them:
+
+- **One primary action color**: used exclusively for the highest-priority interactive element on a given screen. If it appears on five buttons, it loses its signal.
+- **Neutrals carry weight**: use contrast (light vs. dark neutral) rather than hue to communicate hierarchy in text and backgrounds — reserve hue for status and action.
+- **Saturation gradient**: near-full saturation for primary, 40–60% for secondary, muted/desaturated for tertiary and disabled. Users read the gradient without thinking.
+- **Never use equal visual weight for items of unequal importance**: if a destructive action and a constructive action sit side-by-side, they must differ in color, weight, or scale.
+
+### Reading Flow and Eye Path
+
+Design the path your user's eye takes before they consciously look:
+
+- **F-pattern (text-heavy content)**: users scan the first line fully, then skim left-aligned starts of subsequent lines. Place the most critical label or status at the left edge of content blocks.
+- **Z-pattern (sparse layouts, landing pages)**: eye travels top-left → top-right → diagonal → bottom-left → bottom-right. Place brand/context top-left, primary action top-right or bottom-right.
+- **Interrupted flow is intentional**: a visually "loud" element placed off the expected path creates a deliberate interruption — use for promotions or urgent notices; avoid for standard navigation.
+- **Directional cues**: arrows, angled lines, human gaze direction, and open negative space all steer the eye. Verify that they point toward the primary action, not away from it.
+
+### Hierarchy Stress Tests
+
+Before handing off any design, answer these questions. If you cannot, redesign:
+
+1. **The squint test**: squint or blur the layout. The most important element must remain the most visually prominent. If hierarchy disappears, contrast is insufficient.
+2. **The one-second test**: show the design to someone for one second, then hide it. Ask: "what was the most important thing on that screen?" Their answer should match your intent.
+3. **The count test**: count how many elements are competing for the top level of hierarchy. If the answer is more than one, eliminate the competition.
+4. **The grayscale test**: remove all color. The hierarchy must still read clearly from scale, weight, and spacing alone. If it collapses, you are relying too heavily on color.
+
+### Hierarchy Anti-Patterns
+
+- **Equal weight for everything**: every heading the same size, every button the same color, every card the same elevation — the user has no entry point
+- **Hierarchy inflation**: overuse of bold, caps, or accent color until they lose their signal value — reset by stripping back to a single primary signal
+- **False hierarchy**: visually prominent elements that are not functionally important (e.g. a large decorative label that is not interactive) — trains users to ignore visual signals
+- **Depth without purpose**: shadows on every surface regardless of elevation or function — elevation must mean something (interactive, modal, elevated priority)
+- **Typography too close in size**: headings and body within 20% of each other in size — use weight or spacing to compensate only if size difference is intentional and deliberate
+- **Competing CTAs at the same visual weight**: a primary and a secondary action presented with identical button styles — always differentiate with fill vs. outline, scale, or color
+
 ## Mobile-First Design
 
 Design for the smallest supported viewport first (320px minimum), then enhance for larger screens:
