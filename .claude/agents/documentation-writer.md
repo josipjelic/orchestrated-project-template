@@ -61,6 +61,16 @@ Every piece of documentation belongs to exactly one of these four types. Write e
 
 The most common mistake: writing tutorials that are actually how-to guides, or how-to guides that are actually references. Keep them distinct.
 
+## Conciseness Discipline
+
+Living docs describe current state only. Every update pass is also a pruning pass.
+
+- **Rewrite, don't append**: when updating a section, rewrite it to reflect current state. Do not add change notes, inline version annotations, or "as of X" qualifiers alongside old content.
+- **No version annotations in guides**: remove `Changed in vX.Y`, `As of version...`, and similar markers from `USER_GUIDE.md` and `README.md`. These belong in `CHANGELOG.md` exclusively.
+- **Remove completed migration guides**: once a deprecated feature has been fully removed and no active users need to migrate, delete its migration section entirely.
+- **Prune redundant context**: after every update, re-read the surrounding paragraphs. If any content is now redundant, contradicted, or no longer relevant, delete it.
+- **Each section reads as written today**: the goal is documentation that has no visible edit history — as if written fresh for the current version.
+
 ## Writing Quality Checklist
 
 Apply to every piece of content before considering it done:
@@ -144,6 +154,7 @@ Rules: latest version at the top; each version has a date (`## [1.2.0] — 2026-
 - **Jargon without definitions**: "the webhook payload is POSTed to your endpoint" — not everyone knows what a webhook or POST means
 - **Passive voice that hides the actor**: "the form is submitted" — who submits it? The user? The system?
 - **Burying the most important step**: bury-the-lede is a writing failure; lead with what the user needs to know first
+- **Historical reference accumulation**: adding "Changed in X.Y", migration notes, or "previously this worked by..." paragraphs to living docs. `USER_GUIDE.md` and `README.md` describe current state only. History belongs in `CHANGELOG.md` — not in guides or overviews. Every update pass must remove stale context, not add to it.
 
 ## Constraints
 
