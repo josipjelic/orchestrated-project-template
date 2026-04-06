@@ -48,6 +48,62 @@ These apply to all agents at all times. No exceptions without explicit human ins
 
 ---
 
+## Slash Commands
+
+Use these commands to trigger common multi-step workflows:
+
+| Command | What it does |
+|---------|--------------|
+| `/orchestrate <task>` | Full multi-agent task execution — decompose, plan, branch, execute in waves |
+| `/review [branch or file]` | Multi-agent code review: architectural drift + test coverage + implementation quality |
+| `/release [version]` | Pre-release quality pass — QA, docs, CI/CD check, gated release checklist |
+| `/checkpoint [description]` | Verify docs, run lint/tests, commit WIP before pausing |
+| `/status` | Render a live project health card (tasks, commits, open PRs, blockers) |
+| `/start` | Run project onboarding from `START_HERE.md` |
+| `/sync-template` | Pull latest agent definitions and templates from upstream |
+
+---
+
+## MCP Servers
+
+Project MCP servers are declared in `.mcp.json` (committed to the repo — shared by the whole team). No extra credentials required — both servers are unauthenticated.
+
+| Server | Purpose | Agents that use it |
+|--------|---------|-------------------|
+| `sequential-thinking` | Structured multi-step reasoning scratchpad | `systems-architect`, `project-manager` |
+| `context7` | Live, version-accurate library documentation | `frontend-developer`, `react-native-developer`, `backend-developer`, `database-expert`, `docker-expert` |
+
+**GitHub integration** — use the `gh` CLI (already authenticated via `gh auth login`). All agents with `Bash` access can run `gh` commands directly. No token configuration needed.
+
+---
+
+## Hooks
+
+Hooks in `.claude/settings.json` fire automatically and enforce conventions that are otherwise advisory:
+
+| Hook | Trigger | What it does |
+|------|---------|--------------|
+| `guard-destructive.sh` | Before any Bash call | Blocks `rm -rf`, `git push --force`, `DROP TABLE`, `npm publish`, and direct pushes to `main` |
+| `format-on-write.sh` | After any Write or Edit | Runs prettier/eslint (JS/TS), ruff/black (Python), gofmt (Go), or rustfmt on the changed file — no-ops if tooling not installed |
+| `validate-completion.sh` | When Claude finishes a turn | Warns if implementation files changed but `docs/` was not updated, or if `TODO.md` was not updated |
+| `log-agent.sh` | When a subagent starts | Appends a timestamped line to `.claude/agent-log.txt` for an audit trail |
+
+Hooks are non-interactive — they run silently unless they block an action or print a warning.
+
+---
+
+## File-Scoped Rules
+
+Rules in `.claude/rules/` inject context automatically based on the file being edited:
+
+| Rule file | Applied to | Key standards |
+|-----------|-----------|---------------|
+| `typescript.md` | `*.ts`, `*.tsx` | No `any`, no `!` assertions, no `console.log`, explicit return types |
+| `migrations.md` | `*.sql`, `migrations/**` | Reversible migrations, naming convention, no destructive ops without guards |
+| `tests.md` | `*.spec.ts`, `*.test.ts`, `tests/**` | Page Object Model, `data-testid` selectors, no `test.only`, 80% coverage |
+
+---
+
 ## Project Structure
 
 ```
@@ -61,8 +117,14 @@ docs/
   user/USER_GUIDE.md    # User-facing documentation
   technical/            # Architecture, API, DB, decisions, design system (DESIGN_SYSTEM.md owned by @ui-ux-designer)
   content/              # Content strategy, brand voice, keyword targets (owned by @copywriter-seo)
-.claude/agents/         # Specialist agent definitions
-.claude/templates/      # Blank doc templates (synced from upstream — do not edit)
+.claude/
+  agents/               # Specialist agent definitions
+  commands/             # Slash commands (/orchestrate, /review, /release, /checkpoint, /status, /start, /sync-template)
+  hooks/                # Lifecycle hook scripts (guard-destructive, format-on-write, validate-completion, log-agent)
+  rules/                # File-scoped rules (typescript, migrations, tests)
+  settings.json         # Hook configuration
+  templates/            # Blank doc templates (synced from upstream — do not edit)
+.mcp.json               # Project MCP server configuration (shared with team)
 .tasks/                 # Detailed task files — one per TODO item (owned by @project-manager)
 ```
 
